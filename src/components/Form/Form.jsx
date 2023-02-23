@@ -26,7 +26,7 @@ export class Form extends Component {
           <Label>
             Name
             <Input
-              placeholder="Enter your name"
+              placeholder="Enter name"
               type="text"
               name="name"
               pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
@@ -39,7 +39,7 @@ export class Form extends Component {
           <Label>
             Number
             <Input
-              placeholder="Enter your number"
+              placeholder="Enter number"
               type="tel"
               name="number"
               pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
