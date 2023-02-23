@@ -15,8 +15,6 @@ export class App extends Component {
       { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
     ],
     filter: '',
-    name: '',
-    number: '',
   };
 
   changeFilter = evt => {
@@ -29,6 +27,7 @@ export class App extends Component {
       contact.name.toLowerCase().includes(filterNormalize)
     );
   };
+
   addContact = data => {
     const newContact = {
       id: nanoid(),
@@ -40,11 +39,13 @@ export class App extends Component {
       contacts: [newContact, ...prevState.contacts],
     }));
   };
+
   removeContact = contactId => {
     this.setState(prevState => ({
       contacts: prevState.contacts.filter(contact => contact.id !== contactId),
     }));
   };
+
   formSubmitHandler = data => {
     return this.state.contacts.find(contact => contact.name === data.name)
       ? alert(`${data.name} is already in contacts`)

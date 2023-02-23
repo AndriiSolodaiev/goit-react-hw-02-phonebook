@@ -1,4 +1,6 @@
 import { Li, DeleteButton } from './ContactList.styled';
+import PropTypes from 'prop-types';
+
 export function ContactList({ contacts, removeContact }) {
   return (
     <ul>
@@ -13,3 +15,8 @@ export function ContactList({ contacts, removeContact }) {
     </ul>
   );
 }
+
+ContactList.propTypes = {
+  contacts: PropTypes.arrayOf(PropTypes.string.isRequired),
+  removeContact: PropTypes.func.isRequired,
+};
