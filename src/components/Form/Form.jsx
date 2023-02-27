@@ -62,4 +62,9 @@ export class Form extends Component {
 
 Form.propTypes = {
   onSubmit: PropTypes.func.isRequired,
+  contacts: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string.isRequired,
+    })
+  ).isRequired,
 };
