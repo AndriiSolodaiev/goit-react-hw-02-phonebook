@@ -17,8 +17,13 @@ export class Form extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    this.props.onSubmit(this.state);
-    this.reset();
+    if (this.props.contacts.find(contact => contact.name === this.state.name)) {
+      alert(`${this.state.name} is already in contacts`);
+      this.setState({ name: '' });
+    } else {
+      this.props.onSubmit(this.state);
+      this.reset();
+    }
   };
   render() {
     return (

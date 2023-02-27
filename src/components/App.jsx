@@ -28,7 +28,13 @@ export class App extends Component {
     );
   };
 
-  addContact = data => {
+  removeContact = contactId => {
+    this.setState(prevState => ({
+      contacts: prevState.contacts.filter(contact => contact.id !== contactId),
+    }));
+  };
+
+  formSubmitHandler = data => {
     const newContact = {
       id: nanoid(),
       name: data.name,
@@ -40,26 +46,14 @@ export class App extends Component {
     }));
   };
 
-  removeContact = contactId => {
-    this.setState(prevState => ({
-      contacts: prevState.contacts.filter(contact => contact.id !== contactId),
-    }));
-  };
-
-  formSubmitHandler = data => {
-    return this.state.contacts.find(contact => contact.name === data.name)
-      ? alert(`${data.name} is already in contacts`)
-      : this.addContact(data);
-  };
-
   render() {
-    const { filter } = this.state;
+    const { filter, contacts } = this.state;
     return (
       <div>
         <h1>
           Phonebook <AiFillPhone />
         </h1>
-        <Form onSubmit={this.formSubmitHandler} />
+        <Form onSubmit={this.formSubmitHandler} contacts={contacts} />
         <h2>
           Contacts <IoMdContacts />
         </h2>
